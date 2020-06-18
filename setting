@@ -1,0 +1,10 @@
+ndinx:
+sudo vi /etc/nginx/sites-enabled/default // открыть
+location / {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://localhost:8089;
+}
+:w! //сохранить
+sudo nginx -s reload //перезапустить
+----
