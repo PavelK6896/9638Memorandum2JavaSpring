@@ -1,10 +1,25 @@
 ndinx:
 sudo vi /etc/nginx/sites-enabled/default // открыть
-location / {
+
+location /test1/ {
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
-        proxy_pass http://localhost:8089;
+        proxy_pass http://localhost:8090;
 }
+
 :w! //сохранить
 sudo nginx -s reload //перезапустить
 ----
+
+./deploy.sh //из башь
+deploy.sh //просто в консоли запустит башь
+
+curl localhost:8090/test1/
+------
+
+nohup — UNIX-утилита, запускающая указанную команду с игнорированием сигналов потери связи (SIGHUP). Таким образом, команда будет продолжать выполняться в фоновом режиме и после того, как пользователь выйдет из системы.
+pgrep java - найти процес ява
+pgrep -f 9638Memorandum2JavaSpring-1.0-SNAPSHOT.jar // найти процес по jar
+pgrep -f 9638Memorandum2JavaSpring-1.0-SNAPSHOT.jar | xargs kill -9 // убить процес по jar
+
+
